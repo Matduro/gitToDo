@@ -1,5 +1,4 @@
 const generateTodoHelpers = (pool) => {
-
   const fetchTodoByCategory = (categoryId, userId) => {
     const queryParams = [userId];
     let query = `SELECT todos.id, todos.name, deadline, categories.name as category_name
@@ -25,11 +24,11 @@ const generateTodoHelpers = (pool) => {
 
   const updateTodoTable = (userId, todoId, columnName, attribute) => {
     let queryParams = [userId, todoId];
-    let queryString = '';
-    if (columnName === 'delete') {
+    let queryString = "";
+    if (columnName === "delete") {
       queryString = `DELETE
       FROM todos`;
-    } else if (columnName === 'complete') {
+    } else if (columnName === "complete") {
       queryString = `UPDATE todos
       SET date_completed = NOW()`;
     } else {
@@ -45,7 +44,7 @@ const generateTodoHelpers = (pool) => {
   return {
     fetchTodoByCategory,
     fetchTodoByTodoId,
-    updateTodoTable
+    updateTodoTable,
   };
 };
 
